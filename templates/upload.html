@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Document | Gen AI Document Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="{{ url_for('home') }}" class="logo">GenDoc AI</a>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('upload_file') }}">Upload</a>
+        <a href="{{ url_for('project_info') }}">Project Info</a>
+        <a href="{{ url_for('about') }}">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="upload-section">
+    <div class="upload-container fade-in-up">
+      <h1>Upload Your Document</h1>
+      <p>Drag and drop or browse your PDF/image file to get started.</p>
+
+      <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <label for="fileInput" class="custom-dropzone" id="dropZone">
+          <span class="dropzone-text">Click to select or drag your file here</span>
+          <input
+            type="file"
+            name="document"
+            id="fileInput"
+            accept=".pdf,.png,.jpg,.jpeg"
+            required
+          />
+          <div id="fileName" class="file-name">No file selected</div>
+        </label>
+        <button type="submit" class="btn large-btn">Analyze Document</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with ❤️ using Flask, OpenCV, Tesseract & HuggingFace</p>
+  </footer>
+</body>
+</html>

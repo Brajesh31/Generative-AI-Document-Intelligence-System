@@ -1,0 +1,426 @@
+Arch Technologies Lab Manual#2 Tasks 
+ 
+ 
+ 
+ 
+ 
+Name: Muhammad Saad Hanif 
+Phone Number: 03355265915 
+Intern ID: ARCH-2505-0206
+Arch Technologies Lab Manual#2 Tasks 
+CHAPTER#3 NOTES 
+Q1. Why can accuracy be misleading? 
+Answer: 
+If the data is imbalanced (e.g., 95% Class A, 5% Class B), the model can predict only Class A 
+and still achieve 95% accuracy — but it completely misses Class B. That’s why Precision, 
+Recall, and F1-score are better metrics in such cases. 
+Q2. What does the tradeoff between Precision and Recall mean? 
+Answer: 
+• 
+High Precision: Model makes fewer predictions, but most are correct (safer). 
+• 
+High Recall: Model tries to catch everything, even if it makes more mistakes. 
+ Improving one often reduces the other. 
+ Q3. Example of High Precision and Low Recall? 
+Answer: 
+A spam detector that labels an email as spam only when 100% sure. 
+• 
+Many spam emails go undetected (low recall) 
+• 
+But the detected ones are almost all correct (high precision) 
+Q4. What is an ROC Curve? What does AUC mean? 
+Answer: 
+• 
+ROC = Receiver Operating Characteristic 
+• 
+It plots True Positive Rate (Recall) vs False Positive Rate 
+• 
+AUC = Area Under Curve 
+ Higher AUC = better model performance 
+ Q5. What are two approaches to Multiclass Classification? 
+Answer: 
+1. OvR (One-vs-Rest): One classifier for each class vs all others (e.g., 0 vs not 0) 
+2. OvO (One-vs-One): One classifier for every pair of classes (e.g., 0 vs 1, 0 vs 2, etc.) 
+Q6. What is hinge loss in SGDClassifier? 
+Answer:
+Arch Technologies Lab Manual#2 Tasks 
+• 
+Hinge loss is the loss function used in SVM. 
+• 
+It teaches the model to make the correct class score higher than the others. 
+Helps maintain a margin between classes. 
+Q7. What is Multilabel Classification? 
+Answer: 
+When a single sample has multiple labels. 
+Example: A movie tagged as Action, Drama, and Thriller. 
+Q8. What is Multioutput Classification? 
+Answer: 
+When a model predicts multiple outputs for each input. 
+ Example: An image classifier predicts the object type and its location. 
+Q9. What is the MNIST dataset? 
+Answer: 
+A dataset of handwritten digits from 0–9. 
+• 
+Each image is 28x28 pixels 
+• 
+Training set: 60,000 images 
+• 
+Test set: 10,000 images 
+Q10. General steps to train a classifier on MNIST? 
+Answer: 
+1. Load the MNIST dataset 
+2. Split into training and test sets 
+3. Train a classifier (e.g., SGDClassifier, KNeighborsClassifier) 
+4. Evaluate using accuracy, confusion matrix, precision, recall 
+5. Improve using data augmentation or hyperparameter tuning 
+MINIST DIGIT RECOGNIZATION PROJECT 
+Step 1: MNIST Dataset Load
+Arch Technologies Lab Manual#2 Tasks 
+Step 2: Data Split (60k Train / 10k Test) 
+ 
+Step 3: Classifier Train 
+(a) SGD Classifier (hinge loss) 
+ 
+(b) Random Forest Classifier 
+ 
+Step 4: Evaluation (Confusion Matrix + Report)
+Arch Technologies Lab Manual#2 Tasks
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Step 5: Visualize Errors
+Arch Technologies Lab Manual#2 Tasks 
+ 
+ 
+ 
+ 
+ 
+LIBRARY INSTALLATION
+Arch Technologies Lab Manual#2 Tasks
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Gradio APP (https://9b06f90c1521fde862.gradio.live/)
+Arch Technologies Lab Manual#2 Tasks 
+MNIST Digit Recognition Project Report 
+Project Overview 
+The MNIST Digit Recognition Project aims to build a machine learning model that can 
+recognize handwritten digits (0–9) using the MNIST dataset — a benchmark dataset in the field 
+of computer vision. 
+The dataset contains: 
+• 
+70,000 grayscale images (28x28 pixels) 
+• 
+60,000 for training, 10,000 for testing 
+• 
+Each image contains a handwritten digit (0–9) 
+Technologies Used 
+• 
+Python 
+• 
+Scikit-learn 
+• 
+NumPy, Matplotlib 
+• 
+Gradio (for web app) 
+• 
+Jupyter Notebook 
+Models Implemented 
+1. K-Nearest Neighbors (KNN) 
+2. Stochastic Gradient Descent (SGD) Classifier 
+3. Random Forest Classifier 
+Each model was trained and evaluated using: 
+• 
+Confusion Matrix 
+• 
+Classification Report 
+• 
+Accuracy Score 
+Techniques Applied 
+• 
+Data scaling and reshaping 
+• 
+GridSearchCV for hyperparameter tuning 
+• 
+Data Augmentation using image shifting 
+• 
+Error analysis: visualizing misclassified digits 
+• 
+Gradio web app deployment for user-friendly prediction 
+Results
+Arch Technologies Lab Manual#2 Tasks 
+Model 
+Accuracy (Test Set) 
+KNN (tuned) 
+~97% 
+Random Forest ~96% 
+SGD Classifier ~91% 
+Data augmentation improved model accuracy by generating new shifted images. 
+Real-Life Applications of MNIST Digit Recognition 
+1. Banking – Cheque Digit Recognition 
+• 
+Automatically detects handwritten digits on scanned cheques 
+• 
+Reduces manual errors and processing time 
+2. Postal Services – ZIP Code Recognition 
+• 
+Postal codes written by hand can be scanned and recognized 
+• 
+Helps automate sorting in postal departments 
+ 3. Mobile Apps – Handwriting Input 
+• 
+Apps like Google Handwriting Input use digit recognition to convert handwriting to 
+digital numbers 
+4. Education – Math Worksheets 
+• 
+Automatically grade students’ handwritten math tests 
+• 
+AI can read digits written in worksheets 
+5. Healthcare – Patient Form Digitization 
+• 
+Hospitals can digitize old handwritten medical forms using OCR + digit recognition 
+Why MNIST is Important for Beginners 
+• 
+It’s the “Hello World” of computer vision 
+• 
+Helps understand image preprocessing, flattening, classification, and model evaluation 
+• 
+Provides a simple way to get hands-on with supervised learning 
+Gradio Web App 
+The final model was deployed using Gradio, allowing users to:
+Arch Technologies Lab Manual#2 Tasks 
+• 
+Upload a digit image OR 
+• 
+Draw a digit using mouse/touch 
+• 
+See real-time prediction of the digit 
+CHAPTER#4 NOTES 
+Q1: If your training set has millions of features, which Linear Regression 
+algorithm should you use? 
+Answer: 
+Use Stochastic Gradient Descent (SGD) or Mini-batch Gradient Descent 
+Why? 
+• 
+The Normal Equation and Batch Gradient Descent are memory-intensive 
+• 
+SGD uses less memory and is faster for very large datasets 
+Q2: If features in your dataset have very different scales, which algorithms will 
+suffer and why? What's the solution? 
+Answer: 
+Affected Algorithms: 
+• 
+All Gradient Descent methods (Batch, SGD, Mini-batch) 
+• 
+Regularized models (Ridge, Lasso) 
+• 
+Distance-based models like kNN, SVMs 
+Problem: 
+• 
+Features with larger scales dominate the gradient or distance computation 
+• 
+Causes slow convergence or poor performance 
+Solution: 
+ Use feature scaling (e.g., StandardScaler or MinMaxScaler) 
+Q3: Can Gradient Descent get stuck in a local minimum when training Logistic 
+Regression? 
+Answer: 
+ No 
+• 
+The cost function is convex
+Arch Technologies Lab Manual#2 Tasks 
+• 
+Convex functions have only one global minimum, so GD won't get stuckQ4: Do all 
+Gradient Descent algorithms reach the same model if run long enough? 
+Answer: 
+ Generally, yes, but: 
+• 
+If learning rate is not properly tuned, some may not converge 
+• 
+SGD and Mini batch have noise due to randomness and may oscillate around the 
+minimum 
+Q5: In Batch Gradient Descent, if validation error keeps increasing, what could 
+be wrong? 
+Answer: Possible reasons: 
+• 
+Overfitting 
+• 
+High learning rate 
+Solution: 
+• 
+Lower the learning rate 
+• 
+Use Early Stopping 
+Q6: Should we immediately stop Mini-batch Gradient Descent when validation 
+error increases? 
+Answer: 
+ No 
+• 
+Mini batch introduces natural fluctuations in error 
+• 
+It’s better to monitor overall trend or use early stopping with patience 
+Q7: Which Gradient Descent variant reaches the optimal region fastest, and 
+which converges? 
+Algorithm 
+Fast Arrival Converges 
+SGD 
+ Fast 
+ Not exact 
+Mini-batch GD  Fast 
+ Yes 
+Batch GD 
+ Slow 
+ Very accurate 
+Tip to help convergence: 
+• 
+Use learning rate decay 
+• 
+Try optimizers like Momentum or Adam
+Arch Technologies Lab Manual#2 Tasks 
+Q8: In Polynomial Regression, if there’s a big gap between training and 
+validation error, what’s happening? 
+Answer: This indicates Overfitting 
+3 Possible Solutions: 
+1. Apply regularization (Ridge/Lasso) 
+2. Use lower-degree polynomial 
+3. Add more training data 
+Q9: In Ridge Regression, if training and validation error are both high and 
+similar, what's wrong? 
+Answer: The model has high bias 
+Solution: 
+Reduce the regularization strength (i.e., lower alpha) 
+Let the model learn more freely 
+Q10: When should you use: 
+Ridge Regression → When all features are important and you want to reduce 
+overfitting 
+• 
+Lasso → When you want to select features (Lasso can eliminate irrelevant ones) 
+• 
+ElasticNet → When you want a balance between Ridge and Lasso 
+Q11: For classifying images as outdoor/indoor and daytime/nighttime, should 
+you use Logistic Regression or Softmax? 
+Answer: Use two binary Logistic Regression classifiers 
+• 
+This is a multi-label classification problem (one image can belong to multiple categories) 
+• 
+Softmax works only for multi-class, not multi-label 
+ 
+ Q12: Implement Batch Gradient Descent
+Arch Technologies Lab Manual#2 Tasks 
+ 
+ 
+ 
+Predict house prices using: 
+1)Linear Regression 
+2)Ridge Regression 
+3)Lasso Regression 
+4)Compare performance 
+5)Plot learning curve 
+Step 1: Libraries
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Step 2: Load the dataset
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Step 3: Clean the dataset 
+ 
+ 
+Step 4: Train-Test Split 
+ 
+Step 5: Feature Scaling
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Step 6: Train Models 
+ 
+Step 7: Evaluation and Learning Curves (for linear 
+Regression)
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Visual Check — Actual vs Predicted
+Arch Technologies Lab Manual#2 Tasks 
+ 
+Compare Ridge & Lasso 
+ 
+Predict One New Sample
+Arch Technologies Lab Manual#2 Tasks 
+Gradio App (https://1d43bfec74c9e7ed71.gradio.live/)
+Arch Technologies Lab Manual#2 Tasks 
+Final Report: House Price Prediction Project 
+1. Why Certain Algorithms Performed Better or Worse 
+We tested three algorithms — Linear Regression, Ridge Regression, and Lasso Regression. 
+Model 
+R² Score 
+Comments 
+Linear Regression 0.918 
+Strong baseline model with decent generalization 
+Ridge Regression 0.920 
+Slightly better due to regularization 
+Lasso Regression 0.890 
+Slightly underperformed; possibly removed useful features 
+Explanation: 
+• 
+Linear Regression fits the data well but may overfit if features are noisy. 
+• 
+Ridge Regression applies L2 regularization (shrinks large weights), so it handles 
+overfitting better, especially when features are correlated. 
+• 
+Lasso Regression uses L1 regularization, which tends to eliminate some features by 
+setting their coefficients to zero. If those features were useful, performance may slightly 
+drop. 
+2. Impact of Polynomial Degree on Overfitting 
+When using Polynomial Regression, we tested different degrees: 
+Degree Train R² Test R² 
+Result 
+1 
+0.91 
+0.91 
+Balanced 
+2 
+0.97 
+0.87 
+Some overfittings 
+3+ 
+0.99 
+0.75 
+High overfitting 
+Explanation: 
+• 
+Higher degree polynomials fit the training data very closely (low bias) but generalize 
+poorly on new data (high variance). 
+• 
+This results in overfitting, where the model memorizes training points but fails to capture 
+real-world patterns. 
+• 
+Solution: regularization + cross-validation or sticking to lower-degree polynomials. 
+3. Practical Applications of the Trained Model 
+Our trained model (Linear or Ridge Regression) has many real-life applications: 
+1. Real Estate Pricing Engines
+Arch Technologies Lab Manual#2 Tasks 
+• 
+Suggests price estimates for houses based on area, bedrooms, bathrooms, etc. 
+• 
+Help both buyers and sellers make informed decisions. 
+ 2. Banking & Loan Evaluation 
+• 
+Banks can use the model to predict house value for approving loans and mortgages.3. 
+Urban Development and Investment 
+• 
+Government or agencies can assess housing trends and affordability. 
+• 
+Real estate investors can predict ROI (return on investment). 
+4. AI-powered Property Apps 
+• 
+Apps like Zameen.com or Graana can integrate this model to suggest property prices in 
+real-time. 
+Conclusion 
+• 
+Ridge Regression performed best due to its regularization power. 
+• 
+Polynomial features should be used carefully to avoid overfitting. 
+• 
+The model is practical, explainable, and suitable for integration in modern real estate or 
+fintech applications. 
+ 
+Github File Link: 
+MINIST DIGIT RECOGNIZATION PROJECT 
+https://github.com/saadi223/mnist-digit-recognition 
+HOUSE PRICE PREDICTION MODEL 
+https://github.com/saadi223/House-price-prediction

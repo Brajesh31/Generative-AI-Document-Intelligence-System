@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Generative AI Document Intelligence System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="{{ url_for('home') }}" class="logo">GenDoc AI</a>
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('upload_file') }}">Upload</a>
+        <a href="{{ url_for('project_info') }}">Project Info</a>
+        <a href="{{ url_for('about') }}">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="home-hero">
+    <div class="hero-content">
+      <h1 class="fade-in-down">Generative AI Document Intelligence System</h1>
+      <p class="fade-in-up">
+        Upload scanned documents or PDFs and extract structured information using OCR, NLP & LLMs. AI‑powered insights made easy.
+      </p>
+      <a href="{{ url_for('upload_file') }}">
+        <button class="btn large-btn fade-in">Get Started</button>
+      </a>
+      <div class="features fade-in-up delay-1">
+        <div class="feature-item">
+          <div class="icon">📄</div>
+          <h3>Upload PDF / Image</h3>
+          <p>Simple drag & drop or browse...</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">🧠</div>
+          <h3>AI Extraction</h3>
+          <p>OCR, Named Entities, Key Values</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">📊</div>
+          <h3>Download Results</h3>
+          <p>Structured JSON, summary & PDF</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with ❤️ using Flask, OpenCV, Tesseract & HuggingFace</p>
+  </footer>
+</body>
+</html>
